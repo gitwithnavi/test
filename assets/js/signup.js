@@ -1,0 +1,3 @@
+$("#campaign_form_signup").on('submit',function(e){e.preventDefault();if(checkEmail()){$.ajax({type:$(this).prop('method'),url:$(this).prop('action'),data:JSON.stringify($(this).serialize()),dataType:"json"}).done(function(result){document.getElementById("campaign_form_signup").reset();});}
+else{document.querySelector('.-demo').style.display='block';}});const checkEmail=()=>{let inputemail=document.getElementById('signupemail').value;let resp=true;if(!inputemail.match(email)){resp=false;document.querySelector('.-demo').innerHTML='Invalid email!';}
+return resp;}

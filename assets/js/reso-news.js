@@ -1,0 +1,2 @@
+$(function(){$("a.sf-bio-resource-item.-hide").slice(0,12).show();$("a.sf-btn.sf-btn_flat.-full.-lg").click(function(e){e.preventDefault();console.log("hello")
+$("a.sf-bio-resource-item.-hide:hidden").slice(0,12).show();});});

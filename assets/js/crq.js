@@ -1,0 +1,7 @@
+function update(){var e=document.getElementById("contact_country");var strUser=e.options[e.selectedIndex].text;var contact_state=document.getElementById('contact_state');console.log(strUser);if(strUser=="United States"){document.querySelector('.sf-form-group.-hide').style.display="block";contact_state.setAttribute('required','');}}
+function enableCampaignSubmit(){document.getElementById('submit-campaign').disabled=false;}
+$("#campaign_form").on('submit',function(e){document.getElementById('submit-campaign').disabled=true;e.preventDefault();if(checkCampaign()){$.ajax({type:$(this).prop('method'),url:$(this).prop('action'),data:JSON.stringify($(this).serialize()),dataType:"json"}).done(function(result){window.location.href="/thank-you/";document.getElementById("campaign_form").reset();});}
+else{document.querySelector('.-demo').style.display='block';}});const checkCampaign=()=>{let firstName=document.getElementById('campaignfname').value;let lastname=document.getElementById('campaignlname').value;let inpemail=document.getElementById('campaignemail').value;let company=document.getElementById('campaigncompany').value;let resp=true;if(!firstName.match(letters)||!lastname.match(letters)){resp=false;document.querySelector('.-demo').innerHTML='Invalid name!';}
+if(!company.match(letters)){resp=false;document.querySelector('.-demo').innerHTML='Invalid company name!';}
+if(!inpemail.match(email)){resp=false;document.querySelector('.-demo').innerHTML='Invalid email!';}
+return resp;}
